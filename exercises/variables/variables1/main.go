@@ -1,12 +1,10 @@
-// variables1
-// Make me compile!
-
-// I AM NOT DONE
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	var = 5
+    const x = 5
 	fmt.Printf("x has the value %d", x)
 }
