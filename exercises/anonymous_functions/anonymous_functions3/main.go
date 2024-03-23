@@ -1,13 +1,14 @@
 // anonymous functions3
 // Make me compile!
 
-// I AM NOT DONE
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func updateStatus() func() string {
-	var index int
+	var index int = 1
 	orderStatus := map[int]string{
 		1: "TO DO",
 		2: "DOING",
@@ -15,8 +16,8 @@ func updateStatus() func() string {
 	}
 
 	return func() string {
-		index++
-		return "What should I return?"
+        index++
+		return orderStatus[index]
 	}
 }
 
@@ -26,7 +27,6 @@ func main() {
 
 	status = anonymous_func()
 	status = anonymous_func()
-
 	if status == "DONE" {
 		fmt.Println("Good Job!")
 	} else {
