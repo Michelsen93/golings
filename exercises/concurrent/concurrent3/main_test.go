@@ -1,7 +1,6 @@
 // concurrent3
 // Make the tests pass!
 
-// I AM NOT DONE
 package main_test
 
 import (
@@ -26,18 +25,18 @@ func TestSendAndReceive(t *testing.T) {
 
 func sendAndReceive(buf *bytes.Buffer, messages chan string) {
 	go func() {
-		messages <- "Hello"
+		messages <- "Hello "
 		messages <- "World"
 		close(messages)
 	}()
 
-	greeting := <-messages
-	fmt.Fprint(buf, greeting)
+//	greeting := <-messages
+//	fmt.Fprint(buf, greeting)
 
 	// Here we just receive the first message
 	// Consider using a for-range loop to iterate over the messages
-	_, ok := <-messages
-	if !ok {
-		fmt.Fprint(buf, "Channel is closed")
-	}
+    for v := range messages {
+        fmt.Fprint(buf, v)
+    }
+
 }
